@@ -1,0 +1,2 @@
+# kseniia_speech_to_text_bot
+Bot for Telegram. Convert voice messages to text messages using Google Cloud Speech-to-Text API. Language: Russian CHECK IT HERE https://t.me/KseniiiaWriteItDownBot (hosted on my Raspberry Pi so sometimes it could be unavailable)
