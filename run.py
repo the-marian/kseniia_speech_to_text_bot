@@ -15,15 +15,15 @@ def response(bot: telegram.bot.Bot):
     # Request updates after the last update_id
     for update in bot.get_updates(offset=update_id, timeout=10):
         update_id = update.update_id + 1
-        if update.message.voice:  # your bot can receive updates without messages
+        if update.message and update.message.voice:  # your bot can receive updates without messages
             # Reply to the message
             voice_message = update.message.voice
             file_id = voice_message.file_id
-            unic_file_name = str(update_id) + "_voice.ogg"
-            bot.get_file(file_id).download(custom_path=unic_file_name)
-            transcript = transcribe_file(unic_file_name)
+            unique_file_name = str(update_id) + "_voice.ogg"
+            bot.get_file(file_id).download(custom_path=unique_file_name)
+            transcript = transcribe_file(unique_file_name)
             update.message.reply_text(transcript)
-            os.remove(unic_file_name)
+            os.remove(unique_file_name)
 
 def main():
     """Run the bot."""
